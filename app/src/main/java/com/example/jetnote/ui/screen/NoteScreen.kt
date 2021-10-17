@@ -1,15 +1,15 @@
 package com.example.jetnote.ui.screen
 
+import MyAlertDialog
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.jetnote.domain.model.NoteModel
 import com.example.jetnote.routing.Screen
@@ -58,13 +58,8 @@ fun NotesScreen(viewModel: MainViewModel) {
             )
         },
         floatingActionButton = {
-            FloatingActionButton(
-                onClick = {
-
-                }
-            ) {
-                Text("+")
-            }
+            val shouldShowDialog = remember { mutableStateOf(true) }
+            MyAlertDialog()
         },
     )
 }
